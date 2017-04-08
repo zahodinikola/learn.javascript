@@ -166,38 +166,12 @@
 // }
 // var isNotSimple = 1;
 //-----------------------------------------------------------------------------
-
-// var arrayToSort = [1, 45, 3, 56, 11, 48, 23, 90, 33];
-// var pivot, currentElement, wall;
-// //var length = arrayToSort.length;
-// //function qSort (arrayToSort){
-// //we have array, lets find a pivot and place it in a right position
-//   var length = arrayToSort.length;
-// // alert (length + " " + typeof length);
-//   var pivotPointer = length-1;
-//   var lowerPointer = 0;
-//   var higherPointer = pivotPointer - 1;
-//   var box;
-// // alert ("pivotPointer: " + pivotPointer + "\n" + "lowerPointer: " + lowerPointer + "\n" + "higherPointer: " + higherPointer);
-//   while (lowerPointer < higherPointer) {
-//     // alert("i`m here");
-//     pivot = arrayToSort[pivotPointer];
-//     // alert (arrayToSort[lowerPointer] + " " + pivot + " " + arrayToSort[higherPointer]);
-//     if (arrayToSort[lowerPointer] < pivot && arrayToSort[higherPointer] > pivot){
-//       lowerPointer++;
-//       higherPointer -= 1;
-//     }else if (arrayToSort[lowerPointer] < pivot && arrayToSort[higherPointer] < pivot){
-//       lowerPointer++;
-//     }else if (arrayToSort[lowerPointer] > pivot && arrayToSort[higherPointer] > pivot){
-//       higherPointer -= 1;
-//     }else if (arrayToSort[lowerPointer] > pivot && arrayToSort[higherPointer] < pivot){
-//       box = arrayToSort [lowerPointer];
-//       arrayToSort [lowerPointer] = arrayToSort [higherPointer];
-//       arrayToSort [higherPointer] = box;
-//       lowerPointer++;
-//       higherPointer -= 1;
-//     }
-//   }
-//   alert(arrayToSort);
-//   alert ("pivotPointer: " + pivotPointer + "\n" + "lowerPointer: " + lowerPointer + "\n" + "higherPointer: " + higherPointer);
-// //}
+//simple numbers
+var result = "";
+outer:  for (var i = 2; i <= 20; i++){
+            for (var j = 2; j < i-1; j++){
+                if (!(i%j)) continue outer;
+            }
+            result = result + ((!!result)?",":"") + i;
+        }
+alert (result);
