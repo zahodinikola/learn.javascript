@@ -169,7 +169,7 @@
 //simple numbers
 var result = "";
 outer:  for (var i = 2; i <= 20; i++){
-            for (var j = 2; j < i-1; j++){
+            for (var j = 2; j < i; j++){
                 if (!(i%j)) continue outer;
             }
             result = result + ((!!result)?",":"") + i;
