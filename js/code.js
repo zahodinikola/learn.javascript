@@ -167,11 +167,79 @@
 // var isNotSimple = 1;
 //-----------------------------------------------------------------------------
 //simple numbers
-var result = "";
-outer:  for (var i = 2; i <= 20; i++){
-            for (var j = 2; j < i; j++){
-                if (!(i%j)) continue outer;
+// var result = "";
+// outer:  for (var i = 2; i <= 20; i++){
+//             for (var j = 2; j < i; j++){
+//                 if (!(i%j)) continue outer;
+//             }
+//             result = result + ((!!result)?",":"") + i;
+//         }
+// alert (result);
+//------------------------------------------------------------------------------
+// var total = 0, count = 1;
+// while (count <= 10) {
+//   total += count;
+//   count += 1;
+// }
+// console.log(total);
+
+function range(firstElement, lastElement) {
+    var array = [];
+    delta = (arguments[2])?arguments[2]:1;
+
+    switch (delta >= 0){
+        case true:
+            for (var i = firstElement; i <= lastElement; i += delta){
+                array.push(i);
             }
-            result = result + ((!!result)?",":"") + i;
-        }
-alert (result);
+            break;
+        case false:
+            for (var i = firstElement; i >= lastElement; i += delta){
+                array.push(i);
+            }
+            break;
+    }
+    return array;
+}
+
+alert("summa of " + range(10, 1, -1) + " is " + sum(range(10, 1, -1)));
+
+function sum(array) {
+    var summa = 0;
+    for (var i = 0; i < array.length; i++) {
+        summa += array[i];
+    }
+    return summa;
+}
+
+function reverseArray(array) {
+    var resultArray = [];
+
+    for ( var i = array.length - 1; i >= 0; i--) {
+        resultArray.push(array[i]);
+    }
+
+    return resultArray;
+
+}
+
+alert(reverseArray(['a', 'b', 'c', 'd', 'e']));
+
+
+function reverseArrayInPlace(array) {
+    var firstIndex = 0;
+    var lastIndex = array.length - 1;
+    var pocket;
+
+    while (firstIndex <= lastIndex) {
+        pocket = array[firstIndex];
+        array[firstIndex] = array[lastIndex];
+        array[lastIndex] = pocket;
+        firstIndex++;
+        lastIndex--;
+    }
+    return array;
+}
+
+var arr = [1, 2, 3, 4, 5, 6 ,'a', 'b', 'c', 'd', 'e'];
+alert(reverseArrayInPlace(arr));
